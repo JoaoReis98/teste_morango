@@ -1,45 +1,55 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends('layouts.master')
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+@section('title')
+  Bem-vindo!
+@endsection
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+@section('content')
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
+<div class="container">
 
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
+  <div class="row">
+    <div class ="col-md-6">
+        <h3> Registo</h3>
+        <form action="{{ route('signup') }}" method="post" >
+          <div class="form-group">
+            <lable for="nome"> Nome: </lable>
+            <input type="text" id ="nome" name="nome" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <lable for="email"> Email: </lable>
+            <input type="text" id ="email" name="email" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <lable for="password"> Password: </lable>
+            <input type="password" id ="password" name="password" class="form-control"/>
+          </div>
+          <button type="submit" id="registo" class="btn btn-primary">Registar</button>
+          <input type="hidden" name="_token" value="{{ Session::token() }}">
+       </form>
+    </div>
 
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
-            </div>
-        </div>
-    </body>
-</html>
+    <div class ="col-md-6">
+        <h3> Login</h3>
+        <form action="#" method="post" >
+          <div class="form-group">
+            <lable for="email"> Email: </lable>
+            <input type="text" name="email" id ="email" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <lable for="password"> Password: </lable>
+            <input type="password" name="password" id ="password" class="form-control"/>
+          </div>
+          <button type="submit" id="registo" class="btn btn-primary">Entrar</button>
+       </form>
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+@endsection
