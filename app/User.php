@@ -1,10 +1,13 @@
 <?php
 
 namespace App;
+
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Model{
 
-//protected $table
+class User extends Model implements Authenticatable{
+
+  use \Illuminate\Auth\Authenticatable;
+
 }
